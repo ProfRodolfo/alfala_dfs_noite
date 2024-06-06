@@ -24,23 +24,30 @@ const Subtitulo = styled.h3`
     margin-bottom: 40px;
 `
 
-function Pesquisa () {
-    const [ livrosPesquisados, setLivrosPesquisados] = useState('[]')
+function Pesquisa() {
+    const [livrosPesquisados, setLivrosPesquisados] = useState([])
     console.log(livrosPesquisados)
-    return(
+    return (
         <PesquisaContainer>
             <Titulo>Já sabe por onde começar?</Titulo>
             <Subtitulo>Encontre seu livro em nossa estante</Subtitulo>
-            <Input placeholder="Escreva sua próxima leitura" 
-            onBlur={evento => {
-                const textoDigitado = evento.target.value
-                const resultadoPesquisa = livros.filter(livro => livro.nome.includes (textoDigitado)) 
-                setLivrosPesquisados(resultadoPesquisa)
-            }}            
-           />
+            <Input placeholder="Escreva sua próxima leitura"
+                onBlur={evento => {
+                    const textoDigitado = evento.target.value
+                    const resultadoPesquisa = livros.filter(livro => livro.nome.includes(textoDigitado))
+                    setLivrosPesquisados(resultadoPesquisa)
+                }}
+            />
+            {livrosPesquisados.map(livro => (
+                <div>
+                    <p>{livro.nome}</p>
+                    <img src={livro.src} />
+                </div> 
+            ))}
 
         </PesquisaContainer>
     )
 }
+
 
 export default Pesquisa;
