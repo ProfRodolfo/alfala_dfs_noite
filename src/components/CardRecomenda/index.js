@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { Titulo } from "../Titulo"
-
 const Card = styled.div`
    align-items: center;
    background-color: #FFF;
@@ -41,21 +40,23 @@ const ImgLivro = styled.img`
    
 `
 
-function CardRecomenda ({titulo, subtitulo, descricao, img}) {
-    return(
-        <Card>
-            <div>
-                <Titulo>
-                </Titulo>
-                <Subtitulo>{subtitulo}</Subtitulo>
-                <Descricao>{descricao}</Descricao>
-            </div>
-            <div>
-                <ImgLivro src={img} />
-                <Botao>Saiba mais</Botao>
-            </div>
-        </Card>
-    )
+function CardRecomenda({titulo, subtitulo, descricao, img}) {
+   return (
+       <Card>
+           <div>
+               <Titulo
+                   tamanhoFonte="16px"
+                   cor="#EB9B00"
+                   alinhamento="left"
+               >{titulo}</Titulo>
+               <Subtitulo>{subtitulo}</Subtitulo>
+               <Descricao>{descricao}</Descricao>
+           </div>
+           <div>
+               <ImgLivro src={img}/>
+               <Botao>Saiba mais</Botao>
+           </div>
+       </Card> 
+   )
 }
-
-export default CardRecomenda; 
+export default CardRecomenda
